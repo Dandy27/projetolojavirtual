@@ -1,11 +1,30 @@
+
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'sreens/base/base_screen.dart';
 
-void main() {
+void main() async {
   runApp(MyApp());
-  Firestore.instance.document('pedidos/#00001').updateData({'usuario': 'Doug'});
+  // Firestore.instance.collection('usuarios')
+  //     .document('P6w5uzNG4lPjKyjrNXSq')
+  //     .snapshots().listen((document) {
+  //       print(document.data);
+  //
+  // });
+
+  // QuerySnapshot snapshot =
+  //     await Firestore.instance.collection('boletos').getDocuments();
+  // print(snapshot.documents);
+  // for(DocumentSnapshot document in snapshot.documents)  print(document.data);
+
+  Firestore.instance.collection('boletos').snapshots().listen((snapshot) {
+    for(DocumentSnapshot document in snapshot.documents){
+      print(document.data);
+
+    }
+  });
 }
 
 class MyApp extends StatelessWidget {
