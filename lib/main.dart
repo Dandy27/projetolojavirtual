@@ -1,6 +1,4 @@
-
-
-import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'sreens/base/base_screen.dart';
@@ -19,13 +17,19 @@ void main() async {
   // print(snapshot.documents);
   // for(DocumentSnapshot document in snapshot.documents)  print(document.data);
 
-  Firestore.instance.collection('boletos').snapshots().listen((snapshot) {
-    for(DocumentSnapshot document in snapshot.documents){
-      print(document.data);
-
-    }
-  });
-}
+//   Firestore.instance.collection('boletos').snapshots().listen((snapshot) {
+//     for (DocumentSnapshot document in snapshot.documents) {
+//       print(document.data);
+//     }
+//   });
+//
+//   QuerySnapshot snapshot2 =
+//       await Firestore.instance.collection('produto').getDocuments();
+//   print(snapshot2.documents);
+//   for(DocumentSnapshot document in snapshot2.documents ){
+//     print(document.data);
+//   }
+ }
 
 class MyApp extends StatelessWidget {
   @override
