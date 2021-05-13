@@ -5,7 +5,7 @@ import 'sreens/base/base_screen.dart';
 
 void main() {
   runApp(MyApp());
-  Firestore.instance.collection('teste').add({'teste': 'teste'});
+  Firestore.instance.document('pedidos/#00001').updateData({'usuario': 'Doug'});
 }
 
 class MyApp extends StatelessWidget {
@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'RR BEBIDAS',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
