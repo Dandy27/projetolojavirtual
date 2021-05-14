@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:projetolojavirtual/models/page_manager.dart';
+import 'package:provider/provider.dart';
 
 class DrawerTile extends StatelessWidget {
-  const DrawerTile({Key key, this.iconData, this.title, this.page}) : super(key: key);
-  
+  DrawerTile({this.iconData, this.title, this.page});
+
   final IconData iconData;
   final String title;
   final int page;
 
   @override
   Widget build(BuildContext context) {
+    final int curPage = context.watch<PageManager>().page;
     return InkWell(
-      onTap: (){
-        debugPrint('Toquei $page');
+      onTap: () {
+        context.read<PageManager>().setPage(page);
       },
       child: SizedBox(
         height: 60,
@@ -19,14 +22,17 @@ class DrawerTile extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32),
-              child: Icon(iconData,
-              size: 32,
-                color: Colors.grey[700],
+              child: Icon(
+                iconData,
+                size: 32,
+                color:curPage == page ? Colors.red : Colors.grey[700],
               ),
             ),
-            Text(title,
-            style: TextStyle(fontSize: 16,
-            color: Colors.grey[700]),),
+            Text(
+              title,
+              style: TextStyle(fontSize: 16,
+                  color: curPage == page ? Colors.red : Colors.grey[700]),
+            ),
           ],
         ),
       ),
