@@ -5,30 +5,7 @@ import 'sreens/base/base_screen.dart';
 
 void main() async {
   runApp(MyApp());
-  // Firestore.instance.collection('usuarios')
-  //     .document('P6w5uzNG4lPjKyjrNXSq')
-  //     .snapshots().listen((document) {
-  //       print(document.data);
-  //
-  // });
 
-  // QuerySnapshot snapshot =
-  //     await Firestore.instance.collection('boletos').getDocuments();
-  // print(snapshot.documents);
-  // for(DocumentSnapshot document in snapshot.documents)  print(document.data);
-
-//   Firestore.instance.collection('boletos').snapshots().listen((snapshot) {
-//     for (DocumentSnapshot document in snapshot.documents) {
-//       print(document.data);
-//     }
-//   });
-//
-//   QuerySnapshot snapshot2 =
-//       await Firestore.instance.collection('produto').getDocuments();
-//   print(snapshot2.documents);
-//   for(DocumentSnapshot document in snapshot2.documents ){
-//     print(document.data);
-//   }
  }
 
 class MyApp extends StatelessWidget {
@@ -38,7 +15,12 @@ class MyApp extends StatelessWidget {
       title: 'RR BEBIDAS',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+
+        primaryColor: const Color.fromARGB(255, 4, 125, 151),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 4, 125, 151),
+        appBarTheme: const AppBarTheme(
+          elevation: 0,
+        )
       ),
       home: BaseScreen(),
     );
