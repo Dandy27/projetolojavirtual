@@ -52,7 +52,9 @@ class LoginScreen extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      // TODO: ESQUECI MINHA SENHA
+                    },
                     child: const Text(
                       'Esqueci minha senha',
                       style: TextStyle(color: Colors.black, fontSize: 15),
@@ -69,10 +71,19 @@ class LoginScreen extends StatelessWidget {
                           primary: Theme.of(context).primaryColor),
                       onPressed: () {
                         if (formKey.currentState.validate()) {
-                          context.read<UserManager>().signIn(User(
-                            email: emailController.text,
-                            password: passController.text
-                          ));
+                          context.read<UserManager>().signIn(
+                              user: User(
+                                  email: emailController.text,
+                                  password: passController.text),
+                              onFail: (e) {
+                                // ignore: deprecated_member_use
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text('Falha ao entrar: $e'),
+                                    backgroundColor: Colors.red,));
+                              },
+                              onSuccess: () {
+                                // TODO: FECHAR TELA DE LOGIN
+                              });
                         }
                       },
                       child: Text(
