@@ -15,6 +15,16 @@ class LoginScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Entrar'),
         centerTitle: true,
+        actions: [
+          TextButton(
+              onPressed: () {
+                Navigator.of(context).pushReplacementNamed('/signup');
+              },
+              child: const Text(
+                'CRIAR CONTA',
+                style: TextStyle(color: Colors.white),
+              ))
+        ],
       ),
       body: Center(
         child: Card(
@@ -83,7 +93,10 @@ class LoginScreen extends StatelessWidget {
                                   }
                                 },
                           child: userManager.loading
-                              ? CircularProgressIndicator(valueColor: AlwaysStoppedAnimation(Colors.white),)
+                              ? CircularProgressIndicator(
+                                  valueColor:
+                                      AlwaysStoppedAnimation(Colors.white),
+                                )
                               : const Text(
                                   'Entrar',
                                   style: TextStyle(fontSize: 18),
