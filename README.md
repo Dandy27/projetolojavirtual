@@ -1,1 +1,3 @@
 # projetolojavirtual
+
+adaptation
